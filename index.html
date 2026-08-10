@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Lyrics">
+    <meta name="theme-color" content="#1a1a2e">
+    <title>Lyrics Scroller</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎤</text></svg>">
+</head>
+<body>
+    <!-- Top Control Bar -->
+    <header class="controls-bar" id="controlsBar">
+        <button class="btn btn-menu" id="btnMenu" aria-label="Menú de canciones">
+            ☰
+        </button>
+        <div class="controls-center">
+            <button class="btn btn-speed" id="btnSlower" aria-label="Más lento">−</button>
+            <button class="btn btn-play" id="btnPlay" aria-label="Iniciar scroll">▶</button>
+            <button class="btn btn-speed" id="btnFaster" aria-label="Más rápido">+</button>
+            <span class="speed-display" id="speedDisplay">1.0x</span>
+        </div>
+        <button class="btn btn-setlist" id="btnSetlist" aria-label="Setlists">
+            ♫
+        </button>
+    </header>
+
+    <!-- Song Sidebar Menu -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Canciones</h2>
+            <button class="btn btn-close" id="btnCloseSidebar" aria-label="Cerrar menú">✕</button>
+        </div>
+        <ul class="song-list" id="songList">
+            <!-- Populated by JS -->
+        </ul>
+    </aside>
+
+    <!-- Setlist Sidebar -->
+    <aside class="sidebar sidebar-right" id="setlistSidebar">
+        <div class="sidebar-header">
+            <h2>Setlists</h2>
+            <button class="btn btn-close" id="btnCloseSetlist" aria-label="Cerrar setlists">✕</button>
+        </div>
+        <div class="setlist-content" id="setlistContent">
+            <!-- Populated by JS -->
+        </div>
+    </aside>
+
+    <!-- Overlay for sidebars -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main Lyrics Display -->
+    <main class="lyrics-container" id="lyricsContainer">
+        <div class="lyrics-content" id="lyricsContent">
+            <div class="welcome-message">
+                <p>🎤</p>
+                <p>Selecciona una canción del menú</p>
+                <p>o carga un setlist para comenzar</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Current song info bar (bottom) -->
+    <footer class="song-info" id="songInfo">
+        <span class="song-title" id="currentSongTitle">Sin canción seleccionada</span>
+        <span class="song-nav" id="songNav">
+            <button class="btn btn-nav" id="btnPrevSong" aria-label="Canción anterior" disabled>◀</button>
+            <button class="btn btn-nav" id="btnNextSong" aria-label="Siguiente canción">▶</button>
+        </span>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

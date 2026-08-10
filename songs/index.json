@@ -1,0 +1,27 @@
+[
+    {
+        "id": "amor-eterno",
+        "title": "Amor Eterno",
+        "artist": "Juan Gabriel"
+    },
+    {
+        "id": "la-bamba",
+        "title": "La Bamba",
+        "artist": "Ritchie Valens"
+    },
+    {
+        "id": "cielito-lindo",
+        "title": "Cielito Lindo",
+        "artist": "Tradicional Mexicana"
+    },
+    {
+        "id": "el-rey",
+        "title": "El Rey",
+        "artist": "José Alfredo Jiménez"
+    },
+    {
+        "id": "sabor-a-mi",
+        "title": "Sabor a Mí",
+        "artist": "Álvaro Carrillo"
+    }
+]
