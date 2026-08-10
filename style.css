@@ -295,6 +295,7 @@ html, body {
     bottom: 48px;
     left: 0;
     right: 0;
+    overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     padding: 24px 20px;
@@ -328,6 +329,8 @@ html, body {
 .welcome-image {
     max-width: 90%;
     max-height: 70vh;
+    width: auto;
+    height: auto;
     object-fit: contain;
     border-radius: 8px;
 }
