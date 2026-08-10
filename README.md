@@ -74,3 +74,15 @@ Crea un archivo JSON en `setlists/` con este formato:
 2. Source: "Deploy from a branch"
 3. Branch: `main` / `root`
 4. Tu app estará en `https://tu-usuario.github.io/personal-lyrics-scroller/`
+
+
+## Letras en notepad ++
+1. pega la letra 
+2. ctrl + H 
+3. Find what: ^(.+)$
+4. Replace with: "$1",
+
+## reemplazar espacios enter
+1. ctrl + H
+2. Find what: ^$
+3. Replace with: "",
