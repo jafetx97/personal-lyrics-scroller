@@ -60,7 +60,7 @@
         renderSongList();
         renderSetlistPanel();
         bindEvents();
-        registerServiceWorker();
+        unregisterServiceWorker();
     }
 
     // === Data Loading ===
@@ -489,16 +489,18 @@
         });
     }
 
-    // === Service Worker ===
-    function registerServiceWorker() {
+    // === Service Worker Cleanup ===
+    function unregisterServiceWorker() {
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js')
-                .then((reg) => {
-                    console.log('Service Worker registered:', reg.scope);
-                })
-                .catch((err) => {
-                    console.warn('Service Worker registration failed:', err);
+            navigator.serviceWorker.getRegistrations().then((registrations) => {
+                registrations.forEach((reg) => reg.unregister());
+            });
+            // Clear all caches left by the old SW
+            if ('caches' in window) {
+                caches.keys().then((names) => {
+                    names.forEach((name) => caches.delete(name));
                 });
+            }
         }
     }
 
