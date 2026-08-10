@@ -97,7 +97,15 @@
         try {
             const response = await fetch('setlists/index.json');
             if (!response.ok) throw new Error('Failed to load setlists index');
-            state.setlists = await response.json();
+            const index = await response.json();
+
+            // Load each setlist's full data from its individual file
+            const loaded = [];
+            for (const entry of index) {
+                const data = await loadSetlistData(entry.id);
+                if (data) loaded.push(data);
+            }
+            state.setlists = loaded;
         } catch (err) {
             console.warn('Could not load setlists:', err);
             state.setlists = [];
@@ -204,7 +212,10 @@
 
             const lyricsEl = document.createElement('div');
             lyricsEl.className = 'lyrics-text';
-            lyricsEl.textContent = song.lyrics;
+            const lyricsText = Array.isArray(song.lyrics)
+                ? song.lyrics.join('\n')
+                : song.lyrics;
+            lyricsEl.textContent = lyricsText;
 
             section.appendChild(titleEl);
             section.appendChild(artistEl);
