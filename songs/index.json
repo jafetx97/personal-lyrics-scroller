@@ -23,5 +23,245 @@
         "id": "sabor-a-mi",
         "title": "Sabor a Mí",
         "artist": "Álvaro Carrillo"
+    },
+    {
+        "id": "mix-angeles-azules",
+        "title": "Mix Angeles Azules",
+        "artist": "Angeles Azules"
+    },
+    {
+        "id": "mas-que-tu-amigo",
+        "title": "Mas que tu amigo",
+        "artist": "Marco Antonio Solis"
+    },
+    {
+        "id": "mil-horas",
+        "title": "Mil Horas",
+        "artist": "Sonora Dinamita"
+    },
+    {
+        "id": "el-viejo-del-sombreron",
+        "title": "El viejo del sombreron",
+        "artist": "Sonora Dinamita"
+    },
+    {
+        "id": "lloraras",
+        "title": "Lloraras",
+        "artist": "Oscar D, Leon"
+    },
+    {
+        "id": "lamento-boliviano",
+        "title": "Lamento boliviano",
+        "artist": "Enanitos Verdes"
+    },
+    {
+        "id": "el-triste",
+        "title": "El triste",
+        "artist": "Jose Jose"
+    },
+    {
+        "id": "mix-que-bello",
+        "title": "Mix Que Bello",
+        "artist": "Sonora Dinamita"
+    },
+    {
+        "id": "mi-cucu",
+        "title": "Mi cucu",
+        "artist": "Sonora Dinamita"
+    },
+    {
+        "id": "mix-talento-carnaval",
+        "title": "Mix talento carnaval",
+        "artist": "Varios"
+    },
+    {
+        "id": "mix-canaveral",
+        "title": "Mix Cañaveral",
+        "artist": "Canaveral"
+    },
+    {
+        "id": "mix-fito-olivares",
+        "title": "Mix Juana",
+        "artist": "Fito Olivares"
+    },
+    {
+        "id": "vivir-mi-vida",
+        "title": "Vivir mi Vida",
+        "artist": "Marc Anthony"
+    },
+    {
+        "id": "mix-caballo-dorado",
+        "title": "Mix Caballo Dorado",
+        "artist": "Caballo Dorado"
+    },
+    {
+        "id": "mix-timbiriche",
+        "title": "Mix Timbiriche",
+        "artist": "Timbiriche"
+    },
+    {
+        "id": "mix-santanera",
+        "title": "Mix Santanera",
+        "artist": "Sonora Santanera"
+    },
+    {
+        "id": "mix-bobby",
+        "title": "Mix Bobby Pulido",
+        "artist": "Bobby Pulido"
+    },
+    {
+        "id": "no-se-va",
+        "title": "No se Va",
+        "artist": "Grupo Frontera"
+    },
+    {
+        "id": "la-planta",
+        "title": "La Planta",
+        "artist": "Caos"
+    },
+    {
+        "id": "mix-suavecito-luchadores",
+        "title": "Mix Suavecito Luchadores",
+        "artist": "Varios"
+    },
+    {
+        "id": "mix-selena",
+        "title": "Mix Selena",
+        "artist": "Selena"
+    },
+    {
+        "id": "baile-inolvidable",
+        "title": "Baile Inolvidable",
+        "artist": "Bad Bunny"
+    },
+    {
+        "id": "mix-cadenita-pollera",
+        "title": "Mix Cadenita Pollera",
+        "artist": "Varios"
+    },
+    {
+        "id": "mix-cumbia-sampuesana-cienaguera",
+        "title": "Mix cumbia sampuesana cienaguera",
+        "artist": "Varios"
+    },
+    {
+        "id": "la-cita",
+        "title": "La cita",
+        "artist": "Galy Galeano"
+    },
+    {
+        "id": "colegiala",
+        "title": "Colegiala",
+        "artist": "Kalo Margarita"
+    },
+    {
+        "id": "sway",
+        "title": "Sway",
+        "artist": "Michael Bubble"
+    },
+    {
+        "id": "mix-quebraditas",
+        "title": "Mix Quebraditas",
+        "artist": "Varios"
+    },
+    {
+        "id": "mix-merengue",
+        "title": "Mix Merengue",
+        "artist": "Juan Luis Guerra"
+    },
+    {
+        "id": "mix-rock-80s",
+        "title": "Mix Rock 80s",
+        "artist": "Varios"
+    },
+    {
+        "id": "un-monton-de-estrellas",
+        "title": "Un monton de estrellas",
+        "artist": "Alberto Barros"
+    },
+    {
+        "id": "mix-pelotero-swing",
+        "title": "Mix Pelotero Swing",
+        "artist": "Varios"
+    },
+    {
+        "id": "mix-bachata",
+        "title": "Mix Bachata",
+        "artist": "Varios"
+    },
+    {
+        "id": "mix-sergio",
+        "title": "Mix Sergio",
+        "artist": "Varios"
+    },
+    {
+        "id": "mix-buki",
+        "title": "Mix Buki",
+        "artist": "Buki"
+    },
+    {
+        "id": "canta-corazon",
+        "title": "Canta corazon",
+        "artist": "Alejandro Fernandez"
+    },
+    {
+        "id": "la-rebelion",
+        "title": "La rebelion",
+        "artist": "Joe Arrollo"
+    },
+    {
+        "id": "tragos-de-amargo-licor",
+        "title": "Tragos de amargo licor",
+        "artist": "Ramon Ayala"
+    },
+    {
+        "id": "el-columpio",
+        "title": "El columpio",
+        "artist": "Los rieleros del Norte"
+    },
+    {
+        "id": "un-rinconcito-en-el-cielo",
+        "title": "Un rinconcito en el cielo",
+        "artist": "Ramon Ayala"
+    },
+    {
+        "id": "yo-no-fui",
+        "title": "Yo no fui",
+        "artist": "Pedro Fernandez"
+    },
+    {
+        "id": "me-encantas",
+        "title": "Me encantas",
+        "artist": "Pedro Fernandez"
+    },
+    {
+        "id": "como-han-pasado",
+        "title": "Como han pasado los años",
+        "artist": "Julio Iglesias"
+    },
+    {
+        "id": "mix-todo-me-gusta-conga",
+        "title": "Mix Todo me gusta de ti Conga y Timbal",
+        "artist": "Varios"
+    },
+    {
+        "id": "intro-set-1",
+        "title": "Intro set 1",
+        "artist": "Varios"
+    },
+    {
+        "id": "selena-disco-medley",
+        "title": "Selena Disco Medley",
+        "artist": "Selena"
+    },
+    {
+        "id": "si-antes-te-hubiera-conocido",
+        "title": "Si antes te hubiera conocido",
+        "artist": "Karol G"
+    },
+    {
+        "id": "mix-chica-de-humo",
+        "title": "Mix Chica de humo",
+        "artist": "Varios"
     }
 ]
