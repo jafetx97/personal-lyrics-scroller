@@ -29,9 +29,11 @@
         controlsBar: document.getElementById('controlsBar'),
         btnMenu: document.getElementById('btnMenu'),
         btnPlay: document.getElementById('btnPlay'),
-        btnSlower: document.getElementById('btnSlower'),
-        btnFaster: document.getElementById('btnFaster'),
+        btnSpeedToggle: document.getElementById('btnSpeedToggle'),
         speedDisplay: document.getElementById('speedDisplay'),
+        speedSliderContainer: document.getElementById('speedSliderContainer'),
+        speedSlider: document.getElementById('speedSlider'),
+        speedSliderValue: document.getElementById('speedSliderValue'),
         btnSetlist: document.getElementById('btnSetlist'),
 
         sidebar: document.getElementById('sidebar'),
@@ -418,8 +420,31 @@
 
     function adjustSpeed(delta) {
         state.speed = Math.max(0.1, Math.min(5.0, state.speed + delta));
-        state.speed = Math.round(state.speed * 10) / 10; // Avoid floating point weirdness
-        dom.speedDisplay.textContent = state.speed.toFixed(1) + 'x';
+        state.speed = Math.round(state.speed * 10) / 10;
+        updateSpeedDisplay();
+    }
+
+    function setSpeed(value) {
+        state.speed = Math.round(value * 10) / 10;
+        updateSpeedDisplay();
+    }
+
+    function updateSpeedDisplay() {
+        const text = state.speed.toFixed(1) + 'x';
+        dom.speedDisplay.textContent = text;
+        dom.speedSliderValue.textContent = text;
+        dom.speedSlider.value = state.speed;
+    }
+
+    function toggleSpeedSlider() {
+        const isVisible = dom.speedSliderContainer.classList.contains('visible');
+        dom.speedSliderContainer.classList.toggle('visible', !isVisible);
+        dom.btnSpeedToggle.classList.toggle('active', !isVisible);
+    }
+
+    function closeSpeedSlider() {
+        dom.speedSliderContainer.classList.remove('visible');
+        dom.btnSpeedToggle.classList.remove('active');
     }
 
     // === Manual Scroll Handling ===
@@ -452,8 +477,17 @@
     function bindEvents() {
         // Controls
         dom.btnPlay.addEventListener('click', toggleScroll);
-        dom.btnSlower.addEventListener('click', () => adjustSpeed(-0.1));
-        dom.btnFaster.addEventListener('click', () => adjustSpeed(0.1));
+        dom.btnSpeedToggle.addEventListener('click', toggleSpeedSlider);
+        dom.speedSlider.addEventListener('input', (e) => {
+            setSpeed(parseFloat(e.target.value));
+        });
+
+        // Close speed slider when tapping elsewhere
+        document.addEventListener('click', (e) => {
+            if (!dom.speedSliderContainer.contains(e.target) && !dom.btnSpeedToggle.contains(e.target)) {
+                closeSpeedSlider();
+            }
+        });
 
         // Sidebar toggles
         dom.btnMenu.addEventListener('click', openSidebar);
