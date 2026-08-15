@@ -184,8 +184,8 @@ html, body {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 300px;
-    max-width: 80vw;
+    width: 370px;
+    max-width: 85vw;
     z-index: 200;
     background: var(--sidebar-bg);
     transform: translateX(-100%);
@@ -224,6 +224,32 @@ html, body {
 }
 
 /* === Song List === */
+.song-search-container {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.song-search-input {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 16px;
+    font-family: var(--font-ui);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.song-search-input:focus {
+    border-color: var(--accent);
+}
+
+.song-search-input::placeholder {
+    color: var(--text-secondary);
+}
+
 .song-list {
     list-style: none;
     overflow-y: auto;
@@ -248,14 +274,31 @@ html, body {
 }
 
 .song-list li .song-item-title {
-    font-size: 15px;
+    font-size: 22px;
     font-weight: 500;
 }
 
 .song-list li .song-item-artist {
-    font-size: 12px;
-    color: var(--text-secondary);
-    margin-top: 2px;
+    display: none;
+}
+
+.song-list li.song-list-divider {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 12px 16px 6px;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    cursor: default;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.song-list li.song-list-divider:hover {
+    background: var(--bg-secondary);
 }
 
 /* === Setlist Content === */
@@ -354,7 +397,7 @@ html, body {
 
 .lyrics-content {
     font-family: var(--font-lyrics);
-    font-size: 28px;
+    font-size: 30px;
     line-height: 1.8;
     white-space: pre-wrap;
     word-wrap: break-word;
@@ -455,7 +498,7 @@ html, body {
 /* === Responsive === */
 @media (max-width: 600px) {
     .lyrics-content {
-        font-size: 22px;
+        font-size: 24px;
         line-height: 1.7;
     }
 
@@ -469,11 +512,11 @@ html, body {
     .lyrics-content {
         max-width: 800px;
         margin: 0 auto;
-        font-size: 32px;
+        font-size: 34px;
     }
 
     .sidebar {
-        width: 350px;
+        width: 420px;
     }
 }
 

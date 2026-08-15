@@ -39,6 +39,7 @@
         sidebar: document.getElementById('sidebar'),
         btnCloseSidebar: document.getElementById('btnCloseSidebar'),
         songList: document.getElementById('songList'),
+        songSearchInput: document.getElementById('songSearchInput'),
 
         setlistSidebar: document.getElementById('setlistSidebar'),
         btnCloseSetlist: document.getElementById('btnCloseSetlist'),
@@ -126,9 +127,23 @@
     }
 
     // === Rendering ===
-    function renderSongList() {
+    function renderSongList(filter = '') {
         dom.songList.innerHTML = '';
-        state.songs.forEach((song) => {
+        const normalizedFilter = filter.toLowerCase().trim();
+        const filteredSongs = normalizedFilter
+            ? state.songs.filter(song => song.title.toLowerCase().includes(normalizedFilter))
+            : state.songs;
+
+        let currentLetter = '';
+        filteredSongs.forEach((song) => {
+            const firstLetter = song.title.charAt(0).toUpperCase();
+            if (firstLetter !== currentLetter) {
+                currentLetter = firstLetter;
+                const divider = document.createElement('li');
+                divider.className = 'song-list-divider';
+                divider.textContent = currentLetter;
+                dom.songList.appendChild(divider);
+            }
             const li = document.createElement('li');
             li.dataset.id = song.id;
             li.innerHTML = `
@@ -138,6 +153,10 @@
             li.addEventListener('click', () => handleSongSelect(song.id));
             dom.songList.appendChild(li);
         });
+
+        if (filteredSongs.length === 0 && normalizedFilter) {
+            dom.songList.innerHTML = '<li style="padding:16px;color:var(--text-secondary);font-size:16px;">No se encontraron canciones</li>';
+        }
     }
 
     function renderSetlistPanel() {
@@ -471,6 +490,9 @@
         dom.sidebar.classList.remove('open');
         dom.setlistSidebar.classList.remove('open');
         dom.overlay.classList.remove('visible');
+        // Clear search when closing
+        dom.songSearchInput.value = '';
+        renderSongList();
     }
 
     // === Event Binding ===
@@ -496,6 +518,11 @@
         dom.btnCloseSetlist.addEventListener('click', closeSidebars);
         dom.overlay.addEventListener('click', closeSidebars);
 
+        // Song search
+        dom.songSearchInput.addEventListener('input', () => {
+            renderSongList(dom.songSearchInput.value);
+        });
+
         // Navigation
         dom.btnPrevSong.addEventListener('click', () => navigateSong(-1));
         dom.btnNextSong.addEventListener('click', () => navigateSong(1));
@@ -506,6 +533,9 @@
 
         // Keyboard shortcuts (nice to have for testing, not primary input)
         document.addEventListener('keydown', (e) => {
+            // Don't intercept keys when typing in search
+            if (e.target === dom.songSearchInput) return;
+
             switch (e.key) {
                 case ' ':
                     e.preventDefault();
