@@ -28,6 +28,7 @@
     const dom = {
         controlsBar: document.getElementById('controlsBar'),
         btnMenu: document.getElementById('btnMenu'),
+        btnHome: document.getElementById('btnHome'),
         btnPlay: document.getElementById('btnPlay'),
         btnSpeedToggle: document.getElementById('btnSpeedToggle'),
         speedDisplay: document.getElementById('speedDisplay'),
@@ -495,6 +496,18 @@
         renderSongList();
     }
 
+    function goHome() {
+        stopScroll();
+        state.currentSetlist = null;
+        state.playlist = [];
+        state.currentSongIndex = -1;
+        dom.lyricsContent.innerHTML = '<div class="welcome-message"><img src="portada.jpeg" alt="Portada" class="welcome-image"></div>';
+        dom.lyricsContainer.scrollTop = 0;
+        dom.currentSongTitle.textContent = 'Sin canción seleccionada';
+        updateNavButtons();
+        highlightActiveSong(null);
+    }
+
     // === Event Binding ===
     function bindEvents() {
         // Controls
@@ -513,6 +526,7 @@
 
         // Sidebar toggles
         dom.btnMenu.addEventListener('click', openSidebar);
+        dom.btnHome.addEventListener('click', goHome);
         dom.btnCloseSidebar.addEventListener('click', closeSidebars);
         dom.btnSetlist.addEventListener('click', openSetlistSidebar);
         dom.btnCloseSetlist.addEventListener('click', closeSidebars);
