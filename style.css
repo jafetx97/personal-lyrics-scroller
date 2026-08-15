@@ -439,7 +439,7 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    min-height: calc(100vh - 100px);
     text-align: center;
     color: var(--text-secondary);
     font-family: var(--font-ui);
@@ -458,6 +458,10 @@ html, body {
 
 .welcome-message p:first-child {
     font-size: 48px;
+}
+
+.lyrics-content.is-home {
+    padding-bottom: 0;
 }
 
 /* Song separator within continuous scroll */

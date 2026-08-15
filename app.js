@@ -65,6 +65,7 @@
         renderSetlistPanel();
         bindEvents();
         unregisterServiceWorker();
+        dom.lyricsContent.classList.add('is-home');
     }
 
     // === Data Loading ===
@@ -218,6 +219,7 @@
 
     function renderLyrics(songs) {
         dom.lyricsContent.innerHTML = '';
+        dom.lyricsContent.classList.remove('is-home');
 
         songs.forEach((song) => {
             const section = document.createElement('div');
@@ -502,6 +504,7 @@
         state.playlist = [];
         state.currentSongIndex = -1;
         dom.lyricsContent.innerHTML = '<div class="welcome-message"><img src="portada.jpeg" alt="Portada" class="welcome-image"></div>';
+        dom.lyricsContent.classList.add('is-home');
         dom.lyricsContainer.scrollTop = 0;
         dom.currentSongTitle.textContent = 'Sin canción seleccionada';
         updateNavButtons();
