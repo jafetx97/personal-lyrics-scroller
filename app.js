@@ -278,16 +278,15 @@
         state.playlist = setlist.songs;
         state.currentSongIndex = 0;
 
-        // Load all songs in the setlist
-        const songs = [];
-        for (const songId of setlist.songs) {
-            const song = await loadSong(songId);
-            if (song) songs.push(song);
+        // Load and show only the first song
+        const firstSongId = setlist.songs[0];
+        const song = await loadSong(firstSongId);
+        if (song) {
+            renderLyrics([song]);
+            updateCurrentSongDisplay(song);
         }
 
-        renderLyrics(songs);
         renderSetlistPanel();
-        updateCurrentSongDisplay(songs[0] || null);
         updateNavButtons();
         closeSidebars();
         stopScroll();
@@ -297,23 +296,17 @@
         state.currentSongIndex = index;
         const songId = state.playlist[index];
 
-        // Jump directly to that song's position (instant, no conflict with auto-scroll)
-        const songEl = document.getElementById(`song-${songId}`);
-        if (songEl) {
-            const container = dom.lyricsContainer;
-            const containerRect = container.getBoundingClientRect();
-            const songRect = songEl.getBoundingClientRect();
-            const offset = songRect.top - containerRect.top + container.scrollTop;
-            container.scrollTop = offset;
-            state.scrollAccumulator = 0;
-            state.lastTimestamp = null;
+        // Load and render only this song
+        const song = await loadSong(songId);
+        if (song) {
+            renderLyrics([song]);
+            updateCurrentSongDisplay(song);
         }
 
-        const song = state.loadedSongs[songId];
-        updateCurrentSongDisplay(song);
         updateNavButtons();
         renderSetlistPanel();
         closeSidebars();
+        stopScroll();
     }
 
     function updateCurrentSongDisplay(song) {
@@ -343,38 +336,23 @@
         state.currentSongIndex = newIndex;
         const songId = state.playlist[newIndex];
 
-        if (state.currentSetlist) {
-            // In setlist mode, jump directly to the song section
-            // Use instant scroll so it doesn't conflict with auto-scroll
-            const songEl = document.getElementById(`song-${songId}`);
-            if (songEl) {
-                const container = dom.lyricsContainer;
-                const containerRect = container.getBoundingClientRect();
-                const songRect = songEl.getBoundingClientRect();
-                const offset = songRect.top - containerRect.top + container.scrollTop;
-                container.scrollTop = offset;
-                // Reset accumulator so auto-scroll continues cleanly from here
-                state.scrollAccumulator = 0;
-                state.lastTimestamp = null;
-            }
-        } else {
-            // Single song mode, load it
-            const song = await loadSong(songId);
-            if (song) {
-                renderLyrics([song]);
-                state.scrollAccumulator = 0;
-                state.lastTimestamp = null;
-            }
+        // Always load and render just this one song
+        const song = await loadSong(songId);
+        if (song) {
+            renderLyrics([song]);
+            state.scrollAccumulator = 0;
+            state.lastTimestamp = null;
         }
 
-        const song = state.loadedSongs[songId];
-        updateCurrentSongDisplay(song);
+        updateCurrentSongDisplay(state.loadedSongs[songId]);
         updateNavButtons();
         highlightActiveSong(songId);
 
         if (state.currentSetlist) {
             renderSetlistPanel();
         }
+
+        stopScroll();
     }
 
     // === Auto-Scroll ===
