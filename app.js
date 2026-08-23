@@ -16,7 +16,7 @@
         playlist: [],           // Current ordered list of song IDs to play through
 
         scrolling: false,       // Is auto-scroll active?
-        speed: 1.0,            // Scroll speed multiplier
+        speed: 0.5,            // Scroll speed multiplier
         baseSpeed: 0.8,        // Base pixels per frame at 1.0x (lower for singing pace)
         animationId: null,     // requestAnimationFrame ID
         lastTimestamp: null,   // For consistent scroll timing
@@ -441,7 +441,7 @@
     }
 
     function adjustSpeed(delta) {
-        state.speed = Math.max(0.1, Math.min(5.0, state.speed + delta));
+        state.speed = Math.max(0.1, Math.min(2.0, state.speed + delta));
         state.speed = Math.round(state.speed * 10) / 10;
         updateSpeedDisplay();
     }
