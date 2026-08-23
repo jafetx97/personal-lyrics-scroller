@@ -273,5 +273,15 @@
         "id": "secreto-de-amor",
         "title": "Secreto de Amor",
         "artist": "Joan Sebastian"
+    },
+    {
+        "id": "las-mañanitas",
+        "title": "Las mañanitas",
+        "artist": "Alejandro Fernandez"
+    },
+    {
+        "id": "el-taca-ta",
+        "title": "El Taca Ta",
+        "artist": "Conjunto Nuevo Amanecer"
     }
 ]
