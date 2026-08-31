@@ -283,5 +283,10 @@
         "id": "el-taca-ta",
         "title": "El Taca Ta",
         "artist": "Conjunto Nuevo Amanecer"
+    },
+    {
+        "id": "estrellas-80s",
+        "title": "Estrellas de los 80s",
+        "artist": "Matute"
     }
 ]
