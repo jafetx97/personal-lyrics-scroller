@@ -288,5 +288,30 @@
         "id": "estrellas-80s",
         "title": "Estrellas de los 80s",
         "artist": "Matute"
+    },
+    {
+        "id": "la-roba-maridos",
+        "title": "La roba maridos",
+        "artist": "Dinamita"
+    },
+    {
+        "id": "el-sol-no-regresa",
+        "title": "El Sol No Regresa",
+        "artist": "La 5ta Estacion"
+    },
+    {
+        "id": "cita-chicos-del-barrio",
+        "title": "La Cita Chicos Del Barrio",
+        "artist": "Chicos del Barrio"
+    },
+    {
+        "id": "de-mi-enamorate",
+        "title": "De mi Enamorate",
+        "artist": "Daniela Romo"
+    },
+    {
+        "id": "mix-baila-esta-cumbia",
+        "title": "Mix baila esta cumbia",
+        "artist": "Kumbia Kings"
     }
 ]
