@@ -499,7 +499,7 @@ html, body {
 
 .song-separator-title {
     font-family: var(--font-ui);
-    font-size: 14px;
+    font-size: 30px;
     color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -555,6 +555,10 @@ html, body {
         line-height: 1.7;
     }
 
+    .song-separator-title {
+        font-size: 24px;
+    }
+
     .controls-bar {
         padding: 6px 8px;
         padding-top: calc(env(safe-area-inset-top, 0px) + 6px);
@@ -565,6 +569,10 @@ html, body {
     .lyrics-content {
         max-width: 800px;
         margin: 0 auto;
+        font-size: 34px;
+    }
+
+    .song-separator-title {
         font-size: 34px;
     }
 
