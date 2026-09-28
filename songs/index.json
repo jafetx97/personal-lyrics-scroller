@@ -323,5 +323,20 @@
         "id": "timbiriche",
         "title": "Timibiriche Mix",
         "artist": "Timbiriche"
+    },
+    {
+        "id": "el-orangutan",
+        "title": "El orangutan",
+        "artist": "Sonora Dinamita"
+    },
+    {
+        "id": "mix-viva-mexico",
+        "title": "MIX VIVA MEXICO",
+        "artist": "Varios"
+    },
+    {
+        "id": "quiero-amanecer",
+        "title": "Quiero Amanecer",
+        "artist": "Daniela Romo"
     }
 ]

@@ -1,5 +1,20 @@
 {
     "id": "demo-evento",
-    "name": "Evento Demo - Agosto 2026",
-    "songs": ["el-rey", "amor-eterno", "cielito-lindo", "la-bamba", "sabor-a-mi"]
+    "name": "Viva Dallas - Septiembre 2026",
+    "songs": [
+        "intro-set-1",
+        "el-orangutan",
+        "mas-que-tu-amigo",
+        "mix-talento-carnaval",
+        "mix-cadenita-pollera",
+        "mix-chica-de-humo",
+        "mix-baila-esta-kumbia",
+        "de-mi-enamorate",
+        "lloraras",
+        "estrellas-80s",
+        "mix-viva-mexico",
+        "quiero-amanecer",
+        "la-rebelion",
+        "mix-selena"
+    ]
 }

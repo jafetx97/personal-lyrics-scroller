@@ -20,6 +20,7 @@
     --song-hover: rgba(74, 158, 255, 0.15);
     --font-lyrics: 'Georgia', serif;
     --font-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --lyrics-size: 30px;
 }
 
 html, body {
@@ -225,6 +226,18 @@ html, body {
     font-size: 22px;
     min-width: 72px;
     min-height: 44px;
+}
+
+.controls-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-font {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0 8px;
 }
 
 /* === Sidebar (Songs) === */
@@ -446,10 +459,12 @@ html, body {
 
 .lyrics-content {
     font-family: var(--font-lyrics);
-    font-size: 30px;
+    font-size: var(--lyrics-size);
     line-height: 1.8;
     white-space: pre-wrap;
     word-wrap: break-word;
+    overflow-wrap: anywhere;
+    max-width: 100%;
     padding-bottom: 60vh;
     min-height: 100%;
 }
@@ -459,7 +474,7 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 220px);
     text-align: center;
     color: var(--text-secondary);
     font-family: var(--font-ui);
@@ -484,6 +499,11 @@ html, body {
     padding-bottom: 0;
 }
 
+/* Remove top padding only on the home/welcome screen */
+.lyrics-container:has(.lyrics-content.is-home) {
+    padding-top: 0;
+}
+
 /* Song separator within continuous scroll */
 .song-separator {
     padding: 40px 0 20px 0;
@@ -499,12 +519,13 @@ html, body {
 
 .song-separator-title {
     font-family: var(--font-ui);
-    font-size: 14px;
+    font-size: var(--lyrics-size);
     color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 600;
     margin-bottom: 4px;
+    overflow-wrap: anywhere;
 }
 
 .song-separator-artist {
@@ -551,7 +572,6 @@ html, body {
 /* === Responsive === */
 @media (max-width: 600px) {
     .lyrics-content {
-        font-size: 24px;
         line-height: 1.7;
     }
 
@@ -565,7 +585,6 @@ html, body {
     .lyrics-content {
         max-width: 800px;
         margin: 0 auto;
-        font-size: 34px;
     }
 
     .sidebar {

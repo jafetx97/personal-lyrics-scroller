@@ -21,8 +21,13 @@
         animationId: null,     // requestAnimationFrame ID
         lastTimestamp: null,   // For consistent scroll timing
         scrollAccumulator: 0,  // Sub-pixel scroll accumulator for very slow speeds
-        userScrollTimeout: null // Timeout after manual scroll
+        userScrollTimeout: null, // Timeout after manual scroll
+        fontSize: 30           // Lyrics font size in px (adjustable live)
     };
+
+    const FONT_MIN = 24;
+    const FONT_MAX = 50;
+    const FONT_STEP = 2;
 
     // === DOM References ===
     const dom = {
@@ -36,6 +41,8 @@
         speedSlider: document.getElementById('speedSlider'),
         speedSliderValue: document.getElementById('speedSliderValue'),
         btnSetlist: document.getElementById('btnSetlist'),
+        btnFontUp: document.getElementById('btnFontUp'),
+        btnFontDown: document.getElementById('btnFontDown'),
 
         sidebar: document.getElementById('sidebar'),
         btnCloseSidebar: document.getElementById('btnCloseSidebar'),
@@ -59,6 +66,7 @@
 
     // === Initialization ===
     async function init() {
+        loadFontSize();
         await loadSongIndex();
         await loadSetlists();
         renderSongList();
@@ -447,6 +455,33 @@
         dom.btnSpeedToggle.classList.remove('active');
     }
 
+    // === Font Size Control ===
+    function applyFontSize() {
+        document.documentElement.style.setProperty('--lyrics-size', `${state.fontSize}px`);
+        try {
+            localStorage.setItem('lyricsFontSize', String(state.fontSize));
+        } catch (err) {
+            // localStorage unavailable, ignore
+        }
+    }
+
+    function adjustFontSize(delta) {
+        state.fontSize = Math.max(FONT_MIN, Math.min(FONT_MAX, state.fontSize + delta));
+        applyFontSize();
+    }
+
+    function loadFontSize() {
+        try {
+            const saved = parseInt(localStorage.getItem('lyricsFontSize'), 10);
+            if (!isNaN(saved)) {
+                state.fontSize = Math.max(FONT_MIN, Math.min(FONT_MAX, saved));
+            }
+        } catch (err) {
+            // localStorage unavailable, use default
+        }
+        applyFontSize();
+    }
+
     // === Manual Scroll Handling ===
     function handleManualScroll() {
         // When user scrolls manually, temporarily pause auto-scroll timing
@@ -512,6 +547,10 @@
         dom.btnSetlist.addEventListener('click', openSetlistSidebar);
         dom.btnCloseSetlist.addEventListener('click', closeSidebars);
         dom.overlay.addEventListener('click', closeSidebars);
+
+        // Font size controls
+        dom.btnFontUp.addEventListener('click', () => adjustFontSize(FONT_STEP));
+        dom.btnFontDown.addEventListener('click', () => adjustFontSize(-FONT_STEP));
 
         // Song search
         dom.songSearchInput.addEventListener('input', () => {
