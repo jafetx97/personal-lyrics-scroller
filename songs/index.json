@@ -313,5 +313,15 @@
         "id": "mix-baila-esta-kumbia",
         "title": "Mix baila esta cumbia",
         "artist": "Kumbia Kings"
+    },
+    {
+        "id": "quimbara",
+        "title": "Quimbara",
+        "artist": "Celia Cruz"
+    },
+    {
+        "id": "timbiriche",
+        "title": "Timibiriche Mix",
+        "artist": "Timbiriche"
     }
 ]
