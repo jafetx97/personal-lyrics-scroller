@@ -343,5 +343,20 @@
         "id": "die-with-a-smile",
         "title": "Die with a smile",
         "artist": "Bruno Mars ft Lady Gaga"
+    },
+    {
+        "id": "mix-chuntaro",
+        "title": "Mix Chuntaro",
+        "artist": "Chicos del Barrio"
+    },
+    {
+        "id": "amarrame",
+        "title": "Amarrame",
+        "artist": "Mon La Ferte ft Juanes"
+    },
+    {
+        "id": "mayores",
+        "title": "Mayores",
+        "artist": "Becky G ft Bad Bunny"
     }
 ]
